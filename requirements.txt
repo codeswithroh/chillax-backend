@@ -1,7 +1,9 @@
-fastapi
-uvicorn
-gunicorn
-bs4
-re
-requests
-json
+beautifulsoup4==4.11.1
+fastapi==0.75.1
+gunicorn==20.1.0
+jsonschema==4.4.0
+lxml==4.8.0
+requests==2.22.0
+requests-unixsocket==0.2.0
+starlette==0.17.1
+uvicorn==0.17.6
