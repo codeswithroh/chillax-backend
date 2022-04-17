@@ -3,9 +3,18 @@ from bs4 import BeautifulSoup as SOUP
 import re
 import requests as HTTP
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
+origins= ['http://localhost:3000']
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
@@ -55,7 +64,7 @@ async def read_item(emotion: str):
 	    if(len(tmp) == 3):
 		    title.append(tmp[1][:-3])
 	
-    for i in title[:3]:
+    for i in title[:4]:
         movie_url = f"https://www.omdbapi.com/?apikey=5677e549&t={i}&plot=full"
         response = HTTP.get(movie_url)
         movie_data = response.text 
