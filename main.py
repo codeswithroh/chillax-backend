@@ -7,11 +7,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
-origins= ['http://localhost:3000']
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -71,13 +71,3 @@ async def read_item(emotion: str):
         movie.append(json.loads(movie_data))
       
     return movie
-
-
-
-
-
-
-
-
-
-
